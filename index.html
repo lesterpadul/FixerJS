@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>FIXERJS SAMPLE</title>
+</head>
+<body>
+	<form action="" id="fixerJSForm">
+		<b>Numeric only</b> :
+		<input type="text" class="fixer fixer-numeric" fixer-event="blur" fixer-event-cb-success="whenValidNumber()" fixer-event-cb-error="whenNotValidNumber()">
+		<br>
+		<b>Phone only</b> :
+		<input type="text" class="fixer fixer-phone">
+		<br>
+		<b>Not Empty</b> :
+		<input type="text" class="fixer fixer-required" fixer-event="blur" fixer-event-cb-error="whenEmpty()" fixer-event-cb-success="whenNotEmpty()">
+		<br>
+		<b>Date only</b> :
+		<input type="text" class="fixer fixer-date" fixer-date-format="YYYY-MM-DD" fixer-event="keyup"  fixer-event-cb-error="whenDateValid()" fixer-event-cb-success="whenDateNotValid()">
+		<br>
+		<b>Email only</b> :
+		<input type="text" class="fixer fixer-email" fixer-event-cb-error="whenNotValidEmail();" fixer-event-cb-success="whenValidEmail()">
+		<br>
+		<b>Date Range only</b> :
+		<input type="text" class="fixer fixer-date-range-start">
+		<input type="text" class="fixer fixer-date-range-end">
+		<br>
+		<button>sub</button>
+	</form>
+	<script src="./assets/dependencies/jquery.min.js" type="text/javascript"></script>
+	<script src="./assets/dependencies/moment.js" type="text/javascript"></script>
+	<script src="./assets/fixerjs.js" type='text/javascript'></script>
+	<script type='text/javascript'>
+		$(document).ready(function(){
+			// initialize the fixer init
+			$('#fixerJSForm').fixerInit();
+		});
+		function whenNotEmpty () {
+			console.log("do this when the field is not empty.");
+		}
+		function whenEmpty () {
+			console.log("do this when the field is empty.");
+		}
+		function whenDateValid () {
+			console.log("the date is valid");
+		}
+		function whenDateNotValid () {
+			console.log("the date is not valid");
+		}
+		function whenValidEmail () {
+			console.log("valid email");
+		}
+		function whenNotValidEmail () {
+			console.log("not valid email");
+		}
+		function whenValidNumber () {
+			console.log("valid number");
+		}
+		function whenNotValidNumber () {
+			console.log("not valid number");
+		}
+	</script>
+</body>
+</html>
